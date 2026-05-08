@@ -1,0 +1,30 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="520" rx="34" fill="#ffffff"/>
+  <rect x="2" y="2" width="1196" height="516" rx="32" stroke="#D9DEE8" stroke-width="4"/>
+  <rect x="0" y="0" width="1200" height="520" rx="34" fill="url(#soft)"/>
+  <circle cx="92" cy="94" r="42" fill="#EAF2FF"/>
+  <circle cx="92" cy="94" r="34" fill="#2563EB"/>
+  <text x="92" y="105" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="white">PP</text>
+  <text x="156" y="74" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" fill="#0F172A">Pramod Pareek</text>
+  <rect x="400" y="48" width="28" height="28" rx="5" fill="#0A66C2"/>
+  <text x="414" y="69" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800" fill="white">in</text>
+  <text x="156" y="112" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#475569">Founder &amp; CEO of Global Infrastructure and Advisory Services | Founder and CEO of GateTiger.com | Founder and CEO of Make My Relocation.com</text>
+  <text x="156" y="151" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#64748B">May 7, 2026 · Pramod managed Praveen directly</text>
+  <path d="M70 190H1130" stroke="#E2E8F0" stroke-width="2"/>
+  <text x="72" y="248" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="500" fill="#1E293B">
+    <tspan x="72" dy="0">I highly recommend Praveen Rathee as a Business Analyst. He has strong analytical skills, excellent stakeholder</tspan>
+    <tspan x="72" dy="42">communication, and a proactive approach to problem-solving. Praveen consistently delivers quality work,</tspan>
+    <tspan x="72" dy="42">understands business requirements well, and collaborates effectively with cross-functional teams. He would be a</tspan>
+    <tspan x="72" dy="42">valuable asset to any organization.</tspan>
+  </text>
+  <rect x="72" y="424" width="298" height="44" rx="22" fill="#F1F5F9"/>
+  <text x="221" y="453" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800" fill="#334155">LinkedIn Recommendation</text>
+  <rect x="388" y="424" width="286" height="44" rx="22" fill="#EFF6FF"/>
+  <text x="531" y="453" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800" fill="#2563EB">Managed Directly</text>
+  <defs>
+    <radialGradient id="soft" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1020 70) rotate(139) scale(850 480)">
+      <stop stop-color="#DBEAFE" stop-opacity="0.75"/>
+      <stop offset="0.55" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

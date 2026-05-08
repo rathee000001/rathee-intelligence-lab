@@ -1,0 +1,206 @@
+[
+  {
+    "id": "gold-nexus-alpha",
+    "title": "Gold Nexus Alpha: AI Forecasting & Supply Chain Intelligence Platform",
+    "shortTitle": "Gold Nexus Alpha",
+    "subtitle": "Flagship forecasting platform with Deep ML views, JSON artifacts, Gold AI, and ongoing SQL + RAG integration.",
+    "status": "current",
+    "semester": "Spring 2026",
+    "projectType": "flagship-platform",
+    "priority": "flagship",
+    "cinematicTheme": "gold",
+    "summary": "A live Next.js forecasting and supply chain intelligence platform built around gold price behavior, macroeconomic signals, model artifacts, Deep ML expert views, and AI-assisted interpretation.",
+    "problem": "Gold market intelligence is fragmented across price data, macro indicators, news, model outputs, and supply chain context.",
+    "solution": "Built a deployed platform that organizes forecasting models, artifact-driven analysis, Deep ML pages, validation views, and AI-assisted explanation.",
+    "businessValue": "Helps users understand gold market behavior without scanning disconnected sources manually.",
+    "tools": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Python", "JSON", "CSV", "Recharts", "Three.js", "GitHub", "Vercel"],
+    "skills": ["Forecasting", "Time Series Forecasting", "Supply Chain Analytics", "Machine Learning", "Deep ML", "RAG", "Business Intelligence"],
+    "roles": ["Forecasting Analyst", "Supply Chain Analyst", "BI Analyst", "Data Analyst", "Operations Analyst"],
+    "links": [
+      {
+        "label": "Live Platform",
+        "url": "https://nyit-gold-intelligence-2026-4qlw.vercel.app/",
+        "type": "live"
+      },
+      {
+        "label": "GitHub Repository",
+        "url": "https://github.com/rathee000001/nyit-gold-intelligence-2026",
+        "type": "github"
+      }
+    ],
+    "faculty": ["Professor Shaya Sheikh", "Professor Rajendra Tibrewala"],
+    "course": "MBA Supply Chain / Analytics Portfolio"
+  },
+  {
+    "id": "hershey-supply-chain-intelligence",
+    "title": "Hershey Supply Chain Intelligence",
+    "shortTitle": "Hershey Intelligence",
+    "subtitle": "Supply chain transparency, sourcing, cost, and evidence intelligence platform.",
+    "status": "in-development",
+    "semester": "Spring 2026",
+    "projectType": "flagship-platform",
+    "priority": "flagship",
+    "cinematicTheme": "hershey",
+    "summary": "A supply chain intelligence platform built from public reports, website screenshots, parsed evidence, and structured data to analyze Hershey supply chain transparency and operational signals.",
+    "problem": "Supply chain transparency data is scattered across reports, websites, sustainability documents, and public disclosures.",
+    "solution": "Building an evidence-backed intelligence platform that organizes Hershey supply chain information into recruiter-friendly analytics and business insights.",
+    "businessValue": "Supports supply chain transparency storytelling, sourcing analysis, procurement review, and operations intelligence.",
+    "tools": ["Next.js", "React", "TypeScript", "Python", "SQL", "JSON", "PDF Parsing", "GitHub", "Vercel"],
+    "skills": ["Supply Chain Analytics", "Operations Analytics", "Business Intelligence", "Data Extraction", "Research Analysis", "Decision Support"],
+    "roles": ["Supply Chain Analyst", "Procurement Analyst", "Operations Analyst", "Business Analyst", "Data Analyst"],
+    "links": [],
+    "faculty": ["Professor Rajendra Tibrewala"],
+    "course": "MBA Supply Chain Intelligence Project"
+  },
+  {
+    "id": "smart-supply-chain-tableau",
+    "title": "Smart Supply Chain Sales & Operations Analysis",
+    "shortTitle": "Supply Chain Tableau",
+    "subtitle": "Tableau dashboard project for sales, delivery, segmentation, and operational performance.",
+    "status": "completed",
+    "semester": "Fall 2025",
+    "projectType": "dashboard",
+    "priority": "high",
+    "cinematicTheme": "tableau",
+    "summary": "A Tableau-based supply chain analytics project analyzing sales, profit, delivery performance, customer segmentation, and operational trends.",
+    "problem": "Operations and sales data needed clearer dashboard-based analysis for business interpretation.",
+    "solution": "Built Tableau dashboards for performance, delivery risk, customer segmentation, and operational visibility.",
+    "businessValue": "Shows direct BI and supply chain dashboarding capability.",
+    "tools": ["Tableau", "Excel", "Data Visualization", "Supply Chain Analytics"],
+    "skills": ["Tableau", "Supply Chain Analytics", "Business Intelligence", "Operations Analytics", "Data Visualization"],
+    "roles": ["Supply Chain Analyst", "BI Analyst", "Operations Analyst", "Data Analyst"],
+    "links": [
+      {
+        "label": "Tableau Public Dashboard",
+        "url": "https://public.tableau.com/shared/FBY5WD55Y?:display_count=n&:origin=viz_share_link",
+        "type": "tableau"
+      }
+    ],
+    "course": "Dashboard / Operations Analytics Project"
+  },
+  {
+    "id": "sec-10k-financial-analysis",
+    "title": "Comparative Financial Statement Analysis: Pharmaceutical Companies",
+    "shortTitle": "SEC 10-K Financial Analysis",
+    "subtitle": "Manual SEC 10-K extraction, Excel ratio model, and comparative financial analysis.",
+    "status": "completed",
+    "semester": "Spring 2025",
+    "projectType": "financial-analysis",
+    "priority": "high",
+    "cinematicTheme": "finance",
+    "summary": "A financial statement analysis project comparing pharmaceutical companies using SEC 10-K filings, Excel ratio modeling, and business interpretation.",
+    "problem": "Financial performance across pharmaceutical companies needed structured comparison using real company filings.",
+    "solution": "Manually extracted SEC 10-K data, built an Excel ratio model, and prepared a comparative report.",
+    "businessValue": "Demonstrates real data extraction, Excel modeling, business analysis, and financial interpretation.",
+    "tools": ["Excel", "SEC 10-K", "Financial Statement Analysis", "Ratio Analysis"],
+    "skills": ["Excel", "Financial Analysis", "Data Structuring", "Business Analytics", "Research"],
+    "roles": ["Business Analyst", "Financial Analyst", "Data Analyst", "Analytics Consultant"],
+    "links": [
+      {
+        "label": "Final Report PDF",
+        "url": "https://drive.google.com/file/d/1SWTAototNhIJbzhTwfAvcpRvCXIDah24/view?usp=sharing",
+        "type": "pdf"
+      },
+      {
+        "label": "Excel Ratio Model",
+        "url": "https://docs.google.com/spreadsheets/d/1xlThwFBoZpw-vK-Te82R45OMzasUvNBi/edit?usp=sharing&ouid=104632640632114433496&rtpof=true&sd=true",
+        "type": "spreadsheet"
+      }
+    ],
+    "course": "Financial Statement Analysis"
+  },
+  {
+    "id": "chapters-4-change",
+    "title": "Chapters 4 Change",
+    "shortTitle": "Chapters 4 Change",
+    "subtitle": "Strategic marketing and nonprofit story website.",
+    "status": "completed",
+    "semester": "Fall 2025",
+    "projectType": "deployed-website",
+    "priority": "standard",
+    "cinematicTheme": "marketing",
+    "summary": "A complete strategic marketing website for a literacy-focused nonprofit concept, including story, past fundraisers, audience messaging, and campaign structure.",
+    "problem": "The nonprofit concept needed a clear digital story and campaign communication strategy.",
+    "solution": "Built a complete deployed website presenting story, fundraiser history, and a path to the campaign.",
+    "businessValue": "Shows marketing strategy translated into a deployed digital experience.",
+    "tools": ["HTML", "CSS", "JavaScript", "GitHub Pages", "Marketing Strategy"],
+    "skills": ["Marketing Strategy", "Web Development", "Branding", "Campaign Design", "Communication"],
+    "roles": ["Business Analyst", "Marketing Analyst", "Product Analyst"],
+    "links": [
+      {
+        "label": "Live Website",
+        "url": "https://rathee000001.github.io/Chapters-4-Change/index.html",
+        "type": "live"
+      },
+      {
+        "label": "GitHub Repository",
+        "url": "https://github.com/rathee000001/Chapters-4-Change",
+        "type": "github"
+      }
+    ],
+    "course": "Strategic Marketing & Branding"
+  },
+  {
+    "id": "the-book-fairies",
+    "title": "The Book Fairies",
+    "shortTitle": "The Book Fairies",
+    "subtitle": "New fundraiser campaign website connected to the broader nonprofit strategy.",
+    "status": "completed",
+    "semester": "Fall 2025",
+    "projectType": "deployed-website",
+    "priority": "standard",
+    "cinematicTheme": "marketing",
+    "summary": "A dedicated fundraiser campaign website designed for campaign explanation, donor understanding, and call-to-action structure.",
+    "problem": "A new fundraiser concept needed focused campaign messaging and a simple digital experience.",
+    "solution": "Built a separate deployed campaign website connected to the broader nonprofit project.",
+    "businessValue": "Demonstrates campaign design, audience messaging, and web execution.",
+    "tools": ["HTML", "CSS", "JavaScript", "GitHub Pages", "Marketing Strategy"],
+    "skills": ["Marketing Strategy", "Campaign Design", "Web Development", "Communication"],
+    "roles": ["Business Analyst", "Marketing Analyst", "Product Analyst"],
+    "links": [
+      {
+        "label": "Live Website",
+        "url": "https://rathee000001.github.io/the-book-faries/",
+        "type": "live"
+      },
+      {
+        "label": "GitHub Repository",
+        "url": "https://github.com/rathee000001/the-book-faries",
+        "type": "github"
+      }
+    ],
+    "course": "Strategic Marketing & Branding"
+  },
+  {
+    "id": "meta-case-analysis",
+    "title": "Meta Case Analysis: Leadership, Culture & Ethics",
+    "shortTitle": "Meta Case Analysis",
+    "subtitle": "Organizational behavior and management framework analysis.",
+    "status": "completed",
+    "semester": "Fall 2024",
+    "projectType": "case-study",
+    "priority": "standard",
+    "cinematicTheme": "case",
+    "summary": "An organizational behavior and management case analysis of Meta using leadership, culture, ethics, stakeholder, and governance frameworks.",
+    "problem": "Meta's organizational and leadership challenges required structured MBA-level analysis.",
+    "solution": "Analyzed Meta through leadership style, cultural dimensions, stakeholder analysis, power dynamics, cognitive bias, and governance recommendations.",
+    "businessValue": "Shows management reasoning, ethical analysis, communication, and MBA-level business writing.",
+    "tools": ["Case Analysis", "Organizational Behavior", "Leadership Analysis", "Ethics", "PowerPoint", "Research"],
+    "skills": ["Management Analysis", "Leadership", "Communication", "Business Ethics", "Research"],
+    "roles": ["Business Analyst", "Operations Analyst", "Management Analyst", "Consulting Analyst"],
+    "links": [
+      {
+        "label": "Report PDF",
+        "url": "https://drive.google.com/file/d/1cCeqdHSJ3PsH0wUnFHviTSq-26WT5jVs/view?usp=sharing",
+        "type": "pdf"
+      },
+      {
+        "label": "Presentation PDF",
+        "url": "https://drive.google.com/file/d/1zPjGSqcSFhyuJbJeKaiKt_DHPAHQSewz/view?usp=sharing",
+        "type": "presentation"
+      }
+    ],
+    "faculty": ["Professor Radoslaw Nowak"],
+    "course": "Organizational Development and Behavior"
+  }
+]
