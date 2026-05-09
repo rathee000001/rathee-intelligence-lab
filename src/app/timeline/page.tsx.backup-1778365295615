@@ -10,8 +10,6 @@ type TimelineItem = {
   key: TimelineCluster;
   date: string;
   label: string;
-  course: string;
-  instructors: string[];
   title: string;
   subtitle: string;
   href: string;
@@ -24,13 +22,11 @@ const timelineItems: TimelineItem[] = [
   {
     key: "goldV3",
     date: "Current / Spring 2026",
-    label: "BUSI 650 + QANT 750",
-    course: "Business Analytics & Decision Making + Managerial Decision Modelling",
-    instructors: ["Professor Rajendra Tibrewala", "Professor Shaya Sheikh"],
+    label: "Flagship",
     title: "Gold Nexus Alpha / Deep ML Academic Fusion",
-    subtitle: "A deployed forecasting and intelligence platform that brings together gold market data, forecasting workflows, regression intelligence, Deep ML model views, structured JSON/CSV artifacts, interactive charts, SQL patching, vector/RAG expansion, and AI-assisted interpretation.",
+    subtitle: "Current flagship version of the Gold project, fusing forecasting, Deep ML model views, regression intelligence, structured JSON/CSV artifacts, SQL patching, vector/RAG expansion, and AI-assisted interpretation. This Spring 2026 academic fusion connects BUSI 650: Business Analytics & Decision Making with Professor Rajendra Tibrewala and QANT 750: Managerial Decision Modelling with Professor Shaya Sheikh.",
     href: "/projects/gold-nexus-alpha",
-    proof: ["300+ GitHub commits", "Deep ML model views", "SQL/vector/RAG patch", "Live forecasting platform"],
+    proof: ["Spring 2026 academic fusion", "BUSI 650 + QANT 750", "300+ GitHub commits", "SQL/vector/RAG patch"],
     skills: ["Next.js", "Python", "SQL", "RAG", "Deep ML"],
     stage: "Current"
   },
@@ -38,105 +34,89 @@ const timelineItems: TimelineItem[] = [
     key: "portfolio",
     date: "Current",
     label: "Portfolio System",
-    course: "Independent Analytics Portfolio",
-    instructors: ["Independent build"],
     title: "Rathee Intelligence Lab",
-    subtitle: "A recruiter-facing analytics portfolio that turns coursework, forecasting systems, dashboards, case studies, AI-assisted tools, and deployed project pages into one interactive proof system.",
+    subtitle: "A recruiter-facing analytics portfolio turning coursework, forecasting systems, dashboards, case studies, and AI-assisted tools into interactive proof systems with live links, project evidence, and skill mapping.",
     href: "/",
-    proof: ["Live Vercel deployment", "Project launcher", "Recruiter proof system", "Skill-to-project mapping"],
+    proof: ["Interactive portfolio", "Project launcher", "Live links", "Recruiter verification"],
     skills: ["React", "Three.js", "Product Design", "Portfolio Strategy"],
-    stage: "Current"
+    stage: "Showcase"
   },
   {
     key: "goldV2",
     date: "Jan 2026 - Feb 2026",
-    label: "QANT 750",
-    course: "Managerial Decision Modelling",
-    instructors: ["Professor Shaya Sheikh", "Professor Rajendra Tibrewala approval"],
+    label: "Version 2",
     title: "Gold Forecasting Project — Version 2",
-    subtitle: "A rebuilt forecasting and decision-modeling phase that extended the original Gold project into a stronger analytics system with clearer model logic, regression interpretation, decision-support structure, and academic project alignment.",
+    subtitle: "Continued the Fall 2025 Gold project into Spring 2026 after receiving permission from Professor Rajendra Tibrewala to extend the same project into Professor Shaya Sheikh's course because the class project aligned closely with the forecasting and decision-modeling direction.",
     href: "/projects/gold-ai-platform",
-    proof: ["Jan-Feb 2026 rebuild", "Decision-modeling alignment", "Regression logic", "Faculty-approved continuation"],
+    proof: ["Faculty-approved continuation", "Forecasting expansion", "Decision-modeling fit", "Regression logic"],
     skills: ["Forecasting", "Regression", "Decision Modeling", "Data Cleaning"],
-    stage: "Version 2"
+    stage: "Rebuild"
   },
   {
     key: "goldV1",
     date: "Fall 2025",
-    label: "MGMT 780",
-    course: "Supply Chain Management",
-    instructors: ["Professor Rajendra Tibrewala"],
+    label: "Version 1",
     title: "Gold Forecasting Project — Version 1",
-    subtitle: "The first academic version of the Gold forecasting project, establishing the original project direction around gold market behavior, supply chain intelligence, macro factors, forecasting logic, and business decision-support interpretation.",
+    subtitle: "The first academic Gold forecasting version created for MGMT 780: Supply Chain Management with Professor Rajendra Tibrewala, establishing the original direction around gold market forecasting, supply chain intelligence, macro factors, and decision-support interpretation.",
     href: "/projects/gold-forecasting-model",
-    proof: ["Academic version 1", "Forecasting foundation", "Supply chain intelligence", "Gold market analysis"],
+    proof: ["MGMT 780", "Professor Rajendra Tibrewala", "Forecasting foundation", "Supply chain intelligence"],
     skills: ["Excel", "Forecasting", "Supply Chain", "Documentation"],
-    stage: "Version 1"
+    stage: "Foundation"
   },
   {
     key: "marketing",
     date: "Fall 2025",
-    label: "MRKT 620",
-    course: "Strategic Marketing and Branding",
-    instructors: ["Professor Jake Treister"],
+    label: "Marketing Strategy",
     title: "Chapters 4 Change",
-    subtitle: "A strategic marketing and branding project that converts nonprofit purpose into audience segmentation, positioning, campaign messaging, storytelling, web presentation, and call-to-action strategy.",
+    subtitle: "A strategic marketing and branding project connected to MRKT 620: Strategic Marketing and Branding with Professor Jake Treister, focused on nonprofit positioning, audience segmentation, storytelling, campaign messaging, and call-to-action design.",
     href: "/projects/chapters-4-change",
-    proof: ["Audience segmentation", "Campaign strategy", "Brand positioning", "Nonprofit storytelling"],
+    proof: ["MRKT 620", "Professor Jake Treister", "Segmentation", "Nonprofit story"],
     skills: ["Marketing Strategy", "Branding", "Storytelling", "Web Design"],
-    stage: "Marketing"
+    stage: "Strategy"
   },
   {
     key: "fundraiser",
     date: "Fall 2025",
-    label: "MRKT 620",
-    course: "Strategic Marketing and Branding",
-    instructors: ["Professor Jake Treister"],
+    label: "Campaign UX",
     title: "The Book Fairies Fundraiser",
-    subtitle: "A fundraising campaign experience focused on turning nonprofit impact into a supporter journey through campaign storytelling, donation tiers, partner messaging, gallery content, and conversion-focused UX.",
+    subtitle: "A campaign experience connected to strategic marketing coursework, turning nonprofit impact, university partners, donation tiers, gallery content, and supporter contact into conversion-focused UX.",
     href: "/projects/the-book-fairies",
-    proof: ["Fundraising UX", "Donation flow", "Supporter journey", "Partner messaging"],
+    proof: ["Campaign flow", "Donation tiers", "Partner messaging", "Fundraiser UX"],
     skills: ["Campaign Design", "UX", "HTML/CSS", "Conversion Flow"],
-    stage: "Campaign"
+    stage: "Execution"
   },
   {
     key: "tableau",
     date: "Spring 2025",
-    label: "QANT 630",
-    course: "Operations and Supply Chain Management",
-    instructors: ["Professor He Zhang"],
+    label: "Operations Analytics",
     title: "DataCo Tableau Supply Chain Story",
-    subtitle: "A supply chain analytics dashboard project that transforms operations data into executive storytelling across sales flow, delivery risk, shipping performance, customer segmentation, filters, and decision-support insights.",
+    subtitle: "A QANT 630: Operations and Supply Chain Management project with Professor He Zhang, connecting operations data, sales flow, delivery risk, shipping analysis, customer segmentation, and executive dashboard storytelling.",
     href: "/projects/dataco-tableau",
-    proof: ["Tableau dashboard", "Delivery risk analysis", "Customer segmentation", "Executive story"],
+    proof: ["QANT 630", "Professor He Zhang", "Tableau dashboard", "Supply chain analytics"],
     skills: ["Tableau", "Supply Chain Analytics", "Dashboard Design", "Operations"],
     stage: "Analytics"
   },
   {
     key: "finance",
     date: "Spring 2025",
-    label: "ACCT 601",
-    course: "Managerial Accounting",
-    instructors: ["Professor Joo-Kwang Yun"],
+    label: "Financial Analysis",
     title: "SEC 10-K Financial Analysis",
-    subtitle: "A financial analysis project that converts SEC 10-K filing evidence into business review outputs, including financial statements, profitability, liquidity, leverage, ratio analysis, trend interpretation, reporting, and presentation-ready insights.",
+    subtitle: "An ACCT 601: Managerial Accounting project with Professor Joo-Kwang Yun, connecting SEC filing review, financial statements, spreadsheet modeling, profitability, liquidity, leverage, trends, report, and presentation.",
     href: "/projects/sec-10k-financial-analysis",
-    proof: ["SEC 10-K analysis", "Ratio review", "Financial statements", "Business review"],
+    proof: ["ACCT 601", "Professor Joo-Kwang Yun", "10-K review", "Financial analysis"],
     skills: ["Excel", "Financial Analysis", "Accounting", "Business Writing"],
-    stage: "Financial"
+    stage: "Business Evidence"
   },
   {
     key: "management",
     date: "Fall 2024",
-    label: "MGMT 605",
-    course: "Organizational Behavior",
-    instructors: ["Professor Radoslaw Nowak"],
+    label: "Management Case",
     title: "Meta Strategic Management Case Analysis",
-    subtitle: "An MBA strategic management case study analyzing Meta through leadership, organizational culture, ethics, privacy, regulation, stakeholder impact, and strategic recommendations. This early coursework project was later converted into a hosted portfolio case study.",
+    subtitle: "An MGMT 605: Organizational Behavior project with Professor Radoslaw Nowak, analyzing Meta through leadership, culture, ethics, privacy, regulation, stakeholders, and strategic recommendations. This was an early MBA case project later converted into a hosted portfolio case study.",
     href: "/projects/meta-case-analysis",
-    proof: ["Leadership analysis", "Culture and ethics", "Stakeholder analysis", "Strategic recommendations"],
+    proof: ["MGMT 605", "Professor Radoslaw Nowak", "Leadership analysis", "Strategic recommendations"],
     skills: ["Strategic Management", "Leadership", "Ethics", "Presentation"],
-    stage: "Case"
+    stage: "Case Analysis"
   }
 ];
 
@@ -147,96 +127,9 @@ const sequenceStats = [
   { value: "Live", label: "Recruiter-ready links" }
 ];
 
-const timelineTone: Record<string, {
-  stagePill: string;
-  coursePill: string;
-  instructorPill: string;
-  evidenceCard: string;
-  evidenceText: string;
-  selectedCard: string;
-}> = {
-  goldV3: {
-    stagePill: "bg-yellow-300 text-slate-950 shadow-yellow-100",
-    coursePill: "border-yellow-300 bg-yellow-50 text-yellow-800",
-    instructorPill: "border-blue-200 bg-blue-50 text-blue-800",
-    evidenceCard: "border-yellow-200 bg-yellow-50",
-    evidenceText: "text-yellow-950",
-    selectedCard: "border-yellow-300 bg-yellow-50 shadow-yellow-100"
-  },
-  portfolio: {
-    stagePill: "bg-emerald-300 text-slate-950 shadow-emerald-100",
-    coursePill: "border-emerald-300 bg-emerald-50 text-emerald-800",
-    instructorPill: "border-slate-200 bg-slate-50 text-slate-800",
-    evidenceCard: "border-emerald-200 bg-emerald-50",
-    evidenceText: "text-emerald-950",
-    selectedCard: "border-emerald-300 bg-emerald-50 shadow-emerald-100"
-  },
-  goldV2: {
-    stagePill: "bg-blue-600 text-white shadow-blue-100",
-    coursePill: "border-blue-200 bg-blue-50 text-blue-800",
-    instructorPill: "border-indigo-200 bg-indigo-50 text-indigo-800",
-    evidenceCard: "border-blue-200 bg-blue-50",
-    evidenceText: "text-blue-950",
-    selectedCard: "border-blue-300 bg-blue-50 shadow-blue-100"
-  },
-  goldV1: {
-    stagePill: "bg-amber-400 text-slate-950 shadow-amber-100",
-    coursePill: "border-amber-200 bg-amber-50 text-amber-800",
-    instructorPill: "border-orange-200 bg-orange-50 text-orange-800",
-    evidenceCard: "border-amber-200 bg-amber-50",
-    evidenceText: "text-amber-950",
-    selectedCard: "border-amber-300 bg-amber-50 shadow-amber-100"
-  },
-  marketing: {
-    stagePill: "bg-fuchsia-500 text-white shadow-fuchsia-100",
-    coursePill: "border-fuchsia-200 bg-fuchsia-50 text-fuchsia-800",
-    instructorPill: "border-pink-200 bg-pink-50 text-pink-800",
-    evidenceCard: "border-fuchsia-200 bg-fuchsia-50",
-    evidenceText: "text-fuchsia-950",
-    selectedCard: "border-fuchsia-300 bg-fuchsia-50 shadow-fuchsia-100"
-  },
-  fundraiser: {
-    stagePill: "bg-rose-500 text-white shadow-rose-100",
-    coursePill: "border-rose-200 bg-rose-50 text-rose-800",
-    instructorPill: "border-pink-200 bg-pink-50 text-pink-800",
-    evidenceCard: "border-rose-200 bg-rose-50",
-    evidenceText: "text-rose-950",
-    selectedCard: "border-rose-300 bg-rose-50 shadow-rose-100"
-  },
-  tableau: {
-    stagePill: "bg-cyan-500 text-white shadow-cyan-100",
-    coursePill: "border-cyan-200 bg-cyan-50 text-cyan-800",
-    instructorPill: "border-sky-200 bg-sky-50 text-sky-800",
-    evidenceCard: "border-cyan-200 bg-cyan-50",
-    evidenceText: "text-cyan-950",
-    selectedCard: "border-cyan-300 bg-cyan-50 shadow-cyan-100"
-  },
-  finance: {
-    stagePill: "bg-violet-500 text-white shadow-violet-100",
-    coursePill: "border-violet-200 bg-violet-50 text-violet-800",
-    instructorPill: "border-purple-200 bg-purple-50 text-purple-800",
-    evidenceCard: "border-violet-200 bg-violet-50",
-    evidenceText: "text-violet-950",
-    selectedCard: "border-violet-300 bg-violet-50 shadow-violet-100"
-  },
-  management: {
-    stagePill: "bg-slate-950 text-yellow-200 shadow-slate-200",
-    coursePill: "border-slate-300 bg-slate-50 text-slate-800",
-    instructorPill: "border-yellow-200 bg-yellow-50 text-yellow-900",
-    evidenceCard: "border-slate-200 bg-slate-50",
-    evidenceText: "text-slate-950",
-    selectedCard: "border-slate-400 bg-slate-50 shadow-slate-200"
-  }
-};
-
-function getTimelineTone(key: TimelineCluster) {
-  return timelineTone[key] || timelineTone.portfolio;
-}
-
 export default function TimelinePage() {
   const [activeKey, setActiveKey] = useState<TimelineCluster>("goldV3");
   const active = timelineItems.find((item) => item.key === activeKey) || timelineItems[0];
-  const activeTone = getTimelineTone(active.key);
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-white text-slate-950">
@@ -323,26 +216,9 @@ export default function TimelinePage() {
                       {active.title}
                     </h2>
                   </div>
-                  <span className={["rounded-full px-4 py-2 text-xs font-black uppercase tracking-[0.18em] shadow-lg", activeTone.stagePill].join(" ")}>
+                  <span className="rounded-full bg-slate-950 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-yellow-200">
                     {active.stage}
                   </span>
-                </div>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  <span className={["rounded-full border px-4 py-2 text-xs font-black uppercase tracking-[0.14em]", activeTone.coursePill].join(" ")}>
-                    Course: {active.label}
-                  </span>
-                  <span className={["rounded-full border px-4 py-2 text-xs font-black", activeTone.coursePill].join(" ")}>
-                    Subject: {active.course}
-                  </span>
-                  {active.instructors.map((name) => (
-                    <span
-                      key={name}
-                      className={["rounded-full border px-4 py-2 text-xs font-semibold", activeTone.instructorPill].join(" ")}
-                    >
-                      <strong>Instructor:</strong> {name}
-                    </span>
-                  ))}
                 </div>
 
                 <p className="mt-5 text-lg leading-8 text-slate-600">
@@ -351,13 +227,8 @@ export default function TimelinePage() {
 
                 <div className="mt-6 grid gap-3 sm:grid-cols-2">
                   {active.proof.map((item) => (
-                    <div key={item} className={["rounded-2xl border p-4 shadow-sm", activeTone.evidenceCard].join(" ")}>
-                      <p className={["text-xs font-black uppercase tracking-[0.14em]", activeTone.evidenceText].join(" ")}>
-                        Project Evidence
-                      </p>
-                      <p className={["mt-2 text-sm font-black", activeTone.evidenceText].join(" ")}>
-                        {item}
-                      </p>
+                    <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                      <p className="text-sm font-black text-slate-950">{item}</p>
                     </div>
                   ))}
                 </div>
@@ -400,7 +271,6 @@ export default function TimelinePage() {
                 <div className="grid gap-4">
                   {timelineItems.map((item, index) => {
                     const selected = activeKey === item.key;
-                    const tone = getTimelineTone(item.key);
 
                     return (
                       <motion.button
@@ -412,7 +282,7 @@ export default function TimelinePage() {
                         className={[
                           "relative grid gap-4 rounded-[2rem] border p-4 text-left shadow-lg transition md:grid-cols-[0.18fr_0.82fr]",
                           selected
-                            ? tone.selectedCard
+                            ? "border-blue-300 bg-blue-50 shadow-blue-100"
                             : "border-slate-200 bg-white shadow-slate-200/70 hover:border-yellow-300"
                         ].join(" ")}
                       >
@@ -433,27 +303,13 @@ export default function TimelinePage() {
                         </div>
 
                         <div>
-                          <div className="flex flex-wrap items-center gap-2">
-                            <span className={["rounded-full border px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em]", tone.coursePill].join(" ")}>
-                              Course: {item.label}
+                          <div className="flex flex-wrap items-center gap-3">
+                            <span className="rounded-full bg-slate-950 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-white">
+                              {item.label}
                             </span>
-                            <span className={["rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] shadow-sm", tone.stagePill].join(" ")}>
+                            <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-slate-500">
                               {item.stage}
                             </span>
-                          </div>
-
-                          <div className="mt-2 flex flex-wrap gap-2">
-                            <span className={["rounded-full border px-3 py-1 text-[10px] font-black", tone.coursePill].join(" ")}>
-                              Subject: {item.course}
-                            </span>
-                            {item.instructors.map((name) => (
-                              <span
-                                key={name}
-                                className={["rounded-full border px-3 py-1 text-[10px] font-semibold", tone.instructorPill].join(" ")}
-                              >
-                                <strong>Instructor:</strong> {name}
-                              </span>
-                            ))}
                           </div>
 
                           <h3 className="mt-3 text-2xl font-black leading-tight text-slate-950">

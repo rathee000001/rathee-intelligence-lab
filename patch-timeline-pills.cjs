@@ -1,12 +1,36 @@
-"use client";
+﻿const fs = require("fs");
+const path = require("path");
 
-import Link from "next/link";
-import { useState } from "react";
-import { motion } from "framer-motion";
-import SiteNavbar from "@/components/navigation/SiteNavbar";
-import TimelineScene, { type TimelineCluster } from "@/components/cinema/timeline/TimelineScene";
+function walk(dir, out = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, e.name);
 
-type TimelineItem = {
+    if (e.isDirectory()) {
+      if (["node_modules", ".next", ".git", "out", "dist"].includes(e.name)) continue;
+      walk(full, out);
+    } else if (
+      e.isFile() &&
+      [".tsx", ".ts", ".jsx", ".js"].includes(path.extname(e.name)) &&
+      !full.includes(".backup") &&
+      !full.includes(".bak")
+    ) {
+      out.push(full);
+    }
+  }
+  return out;
+}
+
+const files = walk(process.cwd());
+
+const targetFiles = files.filter((file) => {
+  const t = fs.readFileSync(file, "utf8");
+  return t.includes("const timelineItems") && t.includes("TimelineItem");
+});
+
+console.log("Timeline files found:");
+targetFiles.forEach((f) => console.log(" -", f));
+
+const newType = `type TimelineItem = {
   key: TimelineCluster;
   date: string;
   label: string;
@@ -18,9 +42,9 @@ type TimelineItem = {
   proof: string[];
   skills: string[];
   stage: string;
-};
+};`;
 
-const timelineItems: TimelineItem[] = [
+const timeline = `const timelineItems: TimelineItem[] = [
   {
     key: "goldV3",
     date: "Current / Spring 2026",
@@ -138,16 +162,9 @@ const timelineItems: TimelineItem[] = [
     skills: ["Strategic Management", "Leadership", "Ethics", "Presentation"],
     stage: "Case"
   }
-];
+];`;
 
-const sequenceStats = [
-  { value: "9", label: "Project proof systems" },
-  { value: "3", label: "Gold forecasting versions" },
-  { value: "5", label: "Business domains" },
-  { value: "Live", label: "Recruiter-ready links" }
-];
-
-const timelineTone: Record<string, {
+const toneBlock = `const timelineTone: Record<string, {
   stagePill: string;
   coursePill: string;
   instructorPill: string;
@@ -231,104 +248,51 @@ const timelineTone: Record<string, {
 
 function getTimelineTone(key: TimelineCluster) {
   return timelineTone[key] || timelineTone.portfolio;
-}
+}`;
 
-export default function TimelinePage() {
-  const [activeKey, setActiveKey] = useState<TimelineCluster>("goldV3");
-  const active = timelineItems.find((item) => item.key === activeKey) || timelineItems[0];
-  const activeTone = getTimelineTone(active.key);
+let patched = 0;
 
-  return (
-    <main className="relative min-h-screen overflow-hidden bg-white text-slate-950">
-      <TimelineScene activeKey={activeKey} />
+for (const file of targetFiles) {
+  let old = fs.readFileSync(file, "utf8");
+  let updated = old;
+  const backup = `${file}.backup-${Date.now()}`;
+  fs.writeFileSync(backup, old);
 
-      <div className="relative z-30">
-        <SiteNavbar />
-      </div>
+  updated = updated.replace(/type TimelineItem = \{[\s\S]*?\};/, newType);
 
-      <section className="relative z-10 mx-auto grid min-h-[calc(100vh-96px)] max-w-7xl items-center px-6 pb-12 pt-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="max-w-3xl">
-          <div className="mb-8 inline-flex items-center gap-4 rounded-full border border-slate-200 bg-white/85 px-5 py-3 shadow-xl shadow-slate-200/70 backdrop-blur">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-950 text-sm font-black text-yellow-200">
-              TL
-            </span>
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.24em] text-slate-400">
-                Project Evolution
-              </p>
-              <p className="text-sm font-black text-slate-950">
-                From class projects to deployed intelligence systems
-              </p>
-            </div>
-          </div>
+  updated = updated.replace(
+    /const timelineItems: TimelineItem\[\] = \[[\s\S]*?\n\];/,
+    timeline
+  );
 
-          <p className="mb-5 text-sm font-black uppercase tracking-[0.34em] text-blue-600">
-            Timeline | Evidence trail | Recruiter verification
-          </p>
+  if (!updated.includes("const timelineTone: Record")) {
+    updated = updated.replace(
+      /const sequenceStats = \[[\s\S]*?\];/,
+      (match) => `${match}\n\n${toneBlock}`
+    );
+  }
 
-          <h1 className="text-6xl font-black leading-[0.9] tracking-tight text-slate-950 md:text-8xl">
-            The build history behind the portfolio.
-          </h1>
+  updated = updated.replace(
+    /const active = timelineItems\.find\(\(item\) => item\.key === activeKey\) \|\| timelineItems\[\d+\];/,
+    `const active = timelineItems.find((item) => item.key === activeKey) || timelineItems[0];
+  const activeTone = getTimelineTone(active.key);`
+  );
 
-          <p className="mt-7 max-w-2xl text-xl font-semibold leading-9 text-slate-600">
-            A reverse-chronological map of how current portfolio systems, forecasting projects, MBA coursework, marketing websites, financial analysis, and AI-assisted platforms evolved into one live portfolio.
-          </p>
+  updated = updated.replace(
+    /useState<TimelineCluster>\("[^"]+"\)/g,
+    'useState<TimelineCluster>("goldV3")'
+  );
 
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="#timeline-map"
-              className="rounded-full bg-blue-600 px-7 py-4 text-sm font-black text-white shadow-xl shadow-blue-200 transition hover:bg-blue-500"
-            >
-              Explore Timeline
-            </a>
-            <Link
-              href="/projects/gold-nexus-alpha"
-              className="rounded-full border border-yellow-300 bg-yellow-100 px-7 py-4 text-sm font-black text-slate-950 shadow-xl shadow-yellow-100 transition hover:bg-yellow-200"
-            >
-              View Current Flagship
-            </Link>
-            <Link
-              href="/"
-              className="rounded-full border border-slate-200 bg-white px-7 py-4 text-sm font-black text-slate-950 shadow-xl shadow-slate-200 transition hover:bg-slate-50"
-            >
-              Home
-            </Link>
-          </div>
-        </div>
+  updated = updated.replace(
+    /<span className="rounded-full bg-slate-950 px-4 py-2 text-xs font-black uppercase tracking-\[0\.18em\] text-yellow-200">([\s\S]*?)<\/span>/,
+    `<span className={["rounded-full px-4 py-2 text-xs font-black uppercase tracking-[0.18em] shadow-lg", activeTone.stagePill].join(" ")}>$1</span>`
+  );
 
-        <div className="hidden lg:block" />
-      </section>
-
-      <section id="timeline-map" className="relative z-10 px-6 py-20">
-        <div className="mx-auto max-w-7xl rounded-[3rem] border border-slate-200 bg-white/86 p-6 shadow-2xl shadow-slate-200/70 backdrop-blur-xl md:p-8">
-          <div className="grid gap-8 lg:grid-cols-[0.68fr_1.32fr]">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.34em] text-blue-600">
-                Active Milestone
-              </p>
-
-              <motion.div
-                key={active.key}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.22 }}
-                className="mt-5 rounded-[2.5rem] border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/60"
-              >
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-black uppercase tracking-[0.24em] text-slate-400">
-                      {active.date}
-                    </p>
-                    <h2 className="mt-2 text-4xl font-black leading-tight text-slate-950">
-                      {active.title}
-                    </h2>
-                  </div>
-                  <span className={["rounded-full px-4 py-2 text-xs font-black uppercase tracking-[0.18em] shadow-lg", activeTone.stagePill].join(" ")}>
-                    {active.stage}
-                  </span>
-                </div>
-
-                <div className="mt-5 flex flex-wrap gap-2">
+  updated = updated.replace(
+    `                <p className="mt-5 text-lg leading-8 text-slate-600">
+                  {active.subtitle}
+                </p>`,
+    `                <div className="mt-5 flex flex-wrap gap-2">
                   <span className={["rounded-full border px-4 py-2 text-xs font-black uppercase tracking-[0.14em]", activeTone.coursePill].join(" ")}>
                     Course: {active.label}
                   </span>
@@ -347,9 +311,12 @@ export default function TimelinePage() {
 
                 <p className="mt-5 text-lg leading-8 text-slate-600">
                   {active.subtitle}
-                </p>
+                </p>`
+  );
 
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+  updated = updated.replace(
+    /<div className="mt-6 grid gap-3 sm:grid-cols-2">\s*\{active\.proof\.map\(\(item\) => \(\s*<div key=\{item\} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">\s*<p className="text-sm font-black text-slate-950">\{item\}<\/p>\s*<\/div>\s*\)\)\}\s*<\/div>/,
+    `<div className="mt-6 grid gap-3 sm:grid-cols-2">
                   {active.proof.map((item) => (
                     <div key={item} className={["rounded-2xl border p-4 shadow-sm", activeTone.evidenceCard].join(" ")}>
                       <p className={["text-xs font-black uppercase tracking-[0.14em]", activeTone.evidenceText].join(" ")}>
@@ -360,79 +327,31 @@ export default function TimelinePage() {
                       </p>
                     </div>
                   ))}
-                </div>
+                </div>`
+  );
 
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {active.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-full border border-blue-200 bg-blue-50 px-3 py-2 text-xs font-black text-blue-700"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+  updated = updated.replace(
+    `                    const selected = activeKey === item.key;
 
-                <Link
-                  href={active.href}
-                  className="mt-7 inline-flex rounded-full bg-blue-600 px-6 py-4 text-sm font-black text-white shadow-xl shadow-blue-200 transition hover:bg-blue-500"
-                >
-                  Open Milestone
-                </Link>
-              </motion.div>
-
-              <div className="mt-5 grid grid-cols-2 gap-3">
-                {sequenceStats.map((stat) => (
-                  <div key={stat.label} className="rounded-[1.7rem] border border-slate-200 bg-white/90 p-5 shadow-lg shadow-slate-200/60">
-                    <p className="text-3xl font-black text-slate-950">{stat.value}</p>
-                    <p className="mt-1 text-xs font-black uppercase tracking-[0.18em] text-slate-400">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <div className="relative rounded-[2.5rem] border border-slate-200 bg-slate-50/95 p-5">
-                <div className="absolute left-8 top-10 hidden h-[calc(100%-5rem)] w-[3px] rounded-full bg-gradient-to-b from-yellow-300 via-blue-500 to-emerald-400 md:block" />
-
-                <div className="grid gap-4">
-                  {timelineItems.map((item, index) => {
-                    const selected = activeKey === item.key;
+                    return (`,
+    `                    const selected = activeKey === item.key;
                     const tone = getTimelineTone(item.key);
 
-                    return (
-                      <motion.button
-                        key={item.key}
-                        onPointerEnter={() => setActiveKey(item.key)}
-                        onClick={() => setActiveKey(item.key)}
-                        whileHover={{ x: 4, scale: 1.005 }}
-                        transition={{ type: "spring", stiffness: 280, damping: 20 }}
-                        className={[
-                          "relative grid gap-4 rounded-[2rem] border p-4 text-left shadow-lg transition md:grid-cols-[0.18fr_0.82fr]",
-                          selected
-                            ? tone.selectedCard
-                            : "border-slate-200 bg-white shadow-slate-200/70 hover:border-yellow-300"
-                        ].join(" ")}
-                      >
-                        <div className="flex items-center gap-4 md:block">
-                          <div
-                            className={[
-                              "relative z-10 flex h-14 w-14 items-center justify-center rounded-full text-xs font-black ring-4",
-                              selected
-                                ? "bg-slate-950 text-yellow-200 ring-blue-100"
-                                : "bg-white text-slate-950 ring-slate-100"
-                            ].join(" ")}
-                          >
-                            {String(index + 1).padStart(2, "0")}
-                          </div>
-                          <p className="mt-0 text-xs font-black uppercase tracking-[0.2em] text-blue-600 md:mt-3">
-                            {item.date}
-                          </p>
-                        </div>
+                    return (`
+  );
 
-                        <div>
+  updated = updated.replace(
+    `selected
+                            ? "border-blue-300 bg-blue-50 shadow-blue-100"
+                            : "border-slate-200 bg-white shadow-slate-200/70 hover:border-yellow-300"`,
+    `selected
+                            ? tone.selectedCard
+                            : "border-slate-200 bg-white shadow-slate-200/70 hover:border-yellow-300"`
+  );
+
+  updated = updated.replace(
+    /<div>\s*<div className="flex flex-wrap items-center gap-3">[\s\S]*?<\/div>\s*<h3 className="mt-3 text-2xl font-black leading-tight text-slate-950">/,
+    `<div>
                           <div className="flex flex-wrap items-center gap-2">
                             <span className={["rounded-full border px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em]", tone.coursePill].join(" ")}>
                               Course: {item.label}
@@ -456,71 +375,14 @@ export default function TimelinePage() {
                             ))}
                           </div>
 
-                          <h3 className="mt-3 text-2xl font-black leading-tight text-slate-950">
-                            {item.title}
-                          </h3>
-                          <p className="mt-2 line-clamp-2 text-sm font-semibold leading-6 text-slate-600">
-                            {item.subtitle}
-                          </p>
-                        </div>
-                      </motion.button>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-12 rounded-[2.5rem] border border-slate-200 bg-slate-950 p-7 text-white shadow-2xl shadow-slate-300/50">
-            <div className="grid gap-8 lg:grid-cols-[0.66fr_1.34fr]">
-              <div>
-                <p className="text-xs font-black uppercase tracking-[0.34em] text-yellow-200">
-                  Recruiter Read
-                </p>
-                <h2 className="mt-4 text-4xl font-black">
-                  This is not one project. It is a progression.
-                </h2>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {[
-                  "Academic projects became deployed websites",
-                  "Gold forecasting evolved through three academic versions",
-                  "Coursework is mapped to instructors and terms",
-                  "Tableau and Excel connect to web proof",
-                  "Strategy work became hosted case studies",
-                  "Portfolio converts evidence into recruiter navigation"
-                ].map((item) => (
-                  <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.06] p-5">
-                    <p className="text-sm font-black text-white">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link
-                href="/projects/gold-nexus-alpha"
-                className="rounded-full bg-yellow-300 px-5 py-3 text-xs font-black uppercase tracking-[0.18em] text-slate-950 transition hover:bg-yellow-200"
-              >
-                Current Flagship
-              </Link>
-              <Link
-                href="/projects/gold-forecasting-model"
-                className="rounded-full border border-white/15 bg-white/10 px-5 py-3 text-xs font-black uppercase tracking-[0.18em] text-white transition hover:bg-white/15"
-              >
-                Start at Version 1
-              </Link>
-              <Link
-                href="/projects/dataco-tableau"
-                className="rounded-full border border-blue-300/25 bg-blue-500/10 px-5 py-3 text-xs font-black uppercase tracking-[0.18em] text-blue-100 transition hover:bg-blue-500/20"
-              >
-                Supply Chain Proof
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+                          <h3 className="mt-3 text-2xl font-black leading-tight text-slate-950">`
   );
+
+  fs.writeFileSync(file, updated, "utf8");
+  console.log("PATCHED:", file);
+  console.log("BACKUP:", backup);
+  patched++;
 }
+
+console.log("TOTAL PATCHED:", patched);
+console.log("Added subject pills, bold Instructor labels, professor pills, and colored evidence cards.");
